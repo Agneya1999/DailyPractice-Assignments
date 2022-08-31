@@ -4,7 +4,6 @@ public class Excersise2 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
 		int n=10;
 		int a=1;
 		int b=1;
