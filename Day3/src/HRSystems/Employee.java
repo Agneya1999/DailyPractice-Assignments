@@ -21,6 +21,12 @@ public class Employee {
 		System.out.println("");
 		
 	}
+
+
+	@Override
+	public String toString() {
+		return "Employee [name=" + name + ", address=" + address + ", salary=" + salary + "]";
+	}
 	
 	
 	
