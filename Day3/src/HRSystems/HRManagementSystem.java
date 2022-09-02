@@ -11,6 +11,7 @@ public class HRManagementSystem {
 		obj.put(1001,new Employee("Ross", "Bangalore", 100000));
 		obj.put(1002, new Employee("Antony", "Chennai", 60000));
 		obj.put(1003,new Employee("David", "Delhi", 50000));
+		obj.put(1004,new SoftEngineers("Abhi", "mysore", 80000, "Java, python", "SVB", 2));
 	}
 	public void display(){
 		for(Map.Entry<Integer,Employee> b: obj.entrySet()) {

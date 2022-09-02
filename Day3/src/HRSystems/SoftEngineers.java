@@ -23,5 +23,10 @@ public class SoftEngineers extends Employee{
 		System.out.println("");
 	}
 
+	@Override
+	public String toString() {
+		return super.toString()+" SoftEngineers [skillSet=" + skillSet + ", customers=" + customers + ", experience=" + experience + "]";
+	}
+
 	
 }
