@@ -9,11 +9,11 @@ public class Problem7 {
 		
 		Scanner sc=new Scanner(System.in);
 		String str = sc.nextLine();
-		String str2 = sc.nextLine();
+		//String str2 = sc.nextLine();
 		int flag=0;
 		for(int i=0;i<str.length();i++) {
-			for(int j=0;j<str2.length();j++) {
-				if(str.charAt(i)==str2.charAt(j)) {
+			for(int j=i+1;j<str.length();j++) {
+				if(str.charAt(i)==str.charAt(j)) {
 					flag=1;
 					break;
 				}
