@@ -24,11 +24,7 @@ public class DBManager {
 
 	public List<String> get(String tableName) {
 		List<String> list = new ArrayList<String>();
-		
-
-//			System.out.println("With in My SQL Example class");
-//
-//			Class.forName("com.mysql.cj.jdbc.Driver");
+					
 		Connection con=null;
 		Statement s=null;
 		ResultSet rs=null;
@@ -38,8 +34,7 @@ public class DBManager {
 			
 			 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + this.dBName, this.user,
 					this.password);
-            
-            	
+           
 			 s = con.createStatement();
 			String str = "select * from " + tableName + " ;";
 			 rs = s.executeQuery(str);
@@ -81,10 +76,6 @@ public class DBManager {
             Connection con=null;
             PreparedStatement ps=null;
 		try {
-
-//			System.out.println("With in My SQL Example class");
-//
-//			Class.forName("com.mysql.cj.jdbc.Driver");
 			
 			DBManager.loadingDriver();
 			
@@ -104,8 +95,7 @@ public class DBManager {
 			abc = abc.substring(0, abc.length() - 1);
 
 			
-			 ps = con
-					.prepareStatement("insert into " + tableName + " (" + abc + ") values (" + s + ")");
+			 ps = con.prepareStatement("insert into " + tableName + " (" + abc + ") values (" + s + ")");
 			// System.out.println("insert into "+tableName+" values ("+s+")");
 
 			int j = 1;
