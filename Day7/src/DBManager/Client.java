@@ -23,7 +23,7 @@ public class Client {
      
      dbObject.insert("employee", a);
      System.out.println("");
-     System.out.println("Retrieving the updated table");
+     System.out.println("After adding a new Row to the table, Retrieving the updated table");
 	 System.out.println("");
 	 
 	 List<String> li1=dbObject.get("employee");
