@@ -1,13 +1,14 @@
 package HRSystems;
 
 public class Employee {
-
+     int empID;
 	 String name;
 	 String address;
 	 int salary;
 	
-	public Employee(String name, String address, int salary) {
+	public Employee(int empID, String name, String address, int salary) {
 		super();
+		this.empID=empID;
 		this.name = name;
 		this.address = address;
 		this.salary = salary;

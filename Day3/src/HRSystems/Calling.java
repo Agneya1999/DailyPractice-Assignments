@@ -4,7 +4,7 @@ public class Calling {
 
 	public static void main(String[] args) {
 		try {
-			Employee e = new Ceo("", "Bangalore", 100000, "Java,spring,Angular,Mysql", "SVB", 2, 5, 10, 4000000, 5, 6000);
+			Employee e = new Ceo(6, "", "Bangalore", 100000, "Java,spring,Angular,Mysql", "SVB", 2, 5, 10, 4000000, 5, 6000);
 			e.print();
 			if(e.name.equals(null)||e.name.isEmpty()||e.name.isBlank()) {
 				throw new NullException("Name not give, Please check");

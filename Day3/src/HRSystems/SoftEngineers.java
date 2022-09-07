@@ -3,9 +3,9 @@ package HRSystems;
 public class SoftEngineers extends Employee{
 	
 
-	 public SoftEngineers(String name, String address, int salary, 
+	 public SoftEngineers(int empID, String name, String address, int salary, 
 			 String skillSet, String customers, int experience) {
-		super(name, address, salary);
+		super(empID, name, address, salary);
 		this.skillSet = skillSet;
 		this.customers = customers;
 		this.experience = experience;

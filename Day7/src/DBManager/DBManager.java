@@ -14,26 +14,43 @@ public class DBManager {
 	private String dBName;
 	private String user;
 	private String password;
+	private Connection con;
+	
+ static {
+		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+	}
 
 	public DBManager(String dBName, String user, String password) {
 		super();
 		this.dBName = dBName;
 		this.user = user;
 		this.password = password;
+		try {
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + this.dBName, this.user,
+					this.password);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public List<String> get(String tableName) {
 		List<String> list = new ArrayList<String>();
 					
-		Connection con=null;
+		
 		Statement s=null;
 		ResultSet rs=null;
-		
 		try {
-			DBManager.loadingDriver();
+		
 			
-			 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + this.dBName, this.user,
-					this.password);
+			 
            
 			 s = con.createStatement();
 			String str = "select * from " + tableName + " ;";
@@ -51,37 +68,41 @@ public class DBManager {
 			}
 			
 
-		} catch (Exception e) {
+		} 
+		catch(SQLException sql) {
+			sql.printStackTrace();
+		}
+		catch (Exception e) {
 			System.out.println("Exception:" + e.getMessage());
 			e.printStackTrace();
 		}
 		
-		finally {
-			try {
-				rs.close();
-				s.close();
-				con.close();
-			} catch (SQLException e) {
-				
-				e.printStackTrace();
-			}
-			
-		}
+//		finally {
+//			try {
+//				rs.close();
+//				s.close();
+//				con.close();
+//			} catch (SQLException e) {
+//				
+//				e.printStackTrace();
+//			}
+//			
+//		}
 		return list;
 		
 
 	}
 
 	public void insert(String tableName, HashMap<String, String> a) {
-            Connection con=null;
+//            Connection con=null;
             PreparedStatement ps=null;
 		try {
 			
-			DBManager.loadingDriver();
 			
 			
-			 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + this.dBName, this.user,
-					this.password);
+			
+//			 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + this.dBName, this.user,
+//					this.password);
 			
 			String s = "?";
 			for (int i = 1; i < a.size(); i++) {
@@ -94,6 +115,7 @@ public class DBManager {
 			}
 			abc = abc.substring(0, abc.length() - 1);
 
+			
 			
 			 ps = con.prepareStatement("insert into " + tableName + " (" + abc + ") values (" + s + ")");
 			// System.out.println("insert into "+tableName+" values ("+s+")");
@@ -114,27 +136,18 @@ public class DBManager {
 			System.out.println("Exception:" + e.getMessage());
 			e.printStackTrace();
 		}
-		finally {
-			try {
-				ps.close();
-				con.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			
-		}
+//		finally {
+//			try {
+//				ps.close();
+//				
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			}
+//			
+//		}
 
 	}
-	public static void loadingDriver() {
-		
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		
-	}
+	
 
 	public String getdBName() {
 		return dBName;
@@ -158,6 +171,17 @@ public class DBManager {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public void close() {
+		// TODO Auto-generated method stub
+		try {
+			System.out.println("Inside close method");
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

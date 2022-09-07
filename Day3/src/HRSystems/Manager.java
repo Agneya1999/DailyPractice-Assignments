@@ -6,10 +6,10 @@ public class Manager extends SoftEngineers {
 	 double budgets;
 	
 	
-	public Manager(String name, String address, int salary, 
+	public Manager(int empID, String name, String address, int salary, 
 			String skillSet, String customers, int experience,
 			int teams, double bonus, double budgets) {
-		super(name, address, salary, skillSet, customers, experience);
+		super(empID, name, address, salary, skillSet, customers, experience);
 		this.teams = teams;
 		this.bonus = bonus;
 		this.budgets = budgets;

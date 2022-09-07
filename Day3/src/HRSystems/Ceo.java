@@ -6,11 +6,11 @@ public class Ceo extends Manager {
  
 
 
-public Ceo(String name, String address, int salary, 
+public Ceo(int empID, String name, String address, int salary, 
 		String skillSet, String customers, int experience, int teams,
 		double bonus, double budgets, 
 		double bonus2, int noOfEmployeesReporting) {
-	super(name, address, salary, skillSet, customers, experience, teams, bonus, budgets);
+	super(empID, name, address, salary, skillSet, customers, experience, teams, bonus, budgets);
 	this.bonus2 = bonus2;
 	this.noOfEmployeesReporting = noOfEmployeesReporting;
 }
