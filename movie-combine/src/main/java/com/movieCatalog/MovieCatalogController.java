@@ -69,11 +69,11 @@ public class MovieCatalogController {
 	
 	//get average rating by providing movie name
 	@GetMapping("/movieName/averageRating/{movieName}")
-	public String getAverageRatingByMoviename(@PathVariable String movieName){
+	public Double getAverageRatingByMoviename(@PathVariable String movieName){
 		Movie movie=restTemplate.getForObject("http://movieservice/movies/movieName/"+ movieName, Movie.class);
-		String message=restTemplate.getForObject("http://movierating/ratingsdata/averagerating/"+ movie.getMovieId(), String.class);
-		String msg= movie.getMovieName()+message+"/10";
-		return msg;
+		Double message=restTemplate.getForObject("http://movierating/ratingsdata/averagerating/"+ movie.getMovieId(), Double.class);
+//		String msg= movie.getMovieName()+message+"/10";
+		return message;
 	}
 	
 		

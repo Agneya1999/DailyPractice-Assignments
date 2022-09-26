@@ -39,8 +39,8 @@ public class MovieSecurityController {
 	}
 	
 	@GetMapping("/moviename/averagerating/{movieName}")
-	public String getAverageratingOfMovie(@PathVariable String movieName){
-		String message=restTemplate.getForObject("http://moviecombine/catalog/movieName/averageRating/"+ movieName, String.class);
+	public double getAverageratingOfMovie(@PathVariable String movieName){
+		double message=restTemplate.getForObject("http://moviecombine/catalog/movieName/averageRating/"+ movieName, double.class);
 		return message;
 	}
 	

@@ -41,7 +41,7 @@ public class MovieRatingController {
 	
 	//fetching the average rating of a movie
 	@GetMapping("/averagerating/{movieId}")
-    public String getAverageRating(@PathVariable Integer movieId) {
+    public double getAverageRating(@PathVariable Integer movieId) {
         double avgRating=0;
         List<Rating> ratingList = new ArrayList();
         ratingList= ratingService.getRatingOfMovie(movieId);
@@ -50,7 +50,7 @@ public class MovieRatingController {
             avgRating=avgRating+ iterator.next().getRating();
         }
         avgRating=(double)(avgRating/ratingList.size());
-        return "  movie Average Rating is - "+avgRating;
+        return avgRating;
     }
 	
 	@PostMapping("/movierating/add")
